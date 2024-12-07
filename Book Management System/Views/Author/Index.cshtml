@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Book_Management_System.Models.Author>
+
+@{
+    ViewBag.Title = "Authors List";
+}
+
+<h2>Authors List</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Author")" class="btn btn-primary">Add New Author</a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.AuthorId</td>
+                <td>@author.AuthorName</td>
+              
+                <td>
+                    
+                    <a href="@Url.Action("Edit", "Author", new { id = author.AuthorId })" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete", "Author", new { id = author.AuthorId })" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
